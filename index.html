@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Sanner Lab pip index</title></head>
+<body style="font-family: sans-serif; max-width: 46rem; margin: 2rem auto; line-height: 1.5">
+<h1>Sanner Lab pip index</h1>
+<p>Python packages for the software of the <a href="https://sannerlab.github.io">Sanner Lab</a>
+(Scripps Research), served as a pip index. The files themselves are attached to releases of
+<a href="https://github.com/sannerlab/downloads/releases">sannerlab/downloads</a>.</p>
+<ul><li><a href="py37/">py37/</a>: the Python 3.7 packages of ADCP 1.1 and ADFRsuite</li></ul>
+<p>Use it with <code>--index-url</code> only, never together with PyPI: some package names
+(for example <code>prody</code>) belong to unrelated projects on PyPI.</p>
+<pre>python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adcp==0.0.25</pre>
+<p>The ADCP 1.1 installation scripts do this for you: see
+<a href="https://sannerlab.github.io/software/adcp/1.1/download.html">ADCP 1.1 download</a>.</p>
+</body></html>
