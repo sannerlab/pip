@@ -2,11 +2,13 @@
 """Write a PEP 503 "simple" pip index for the files of one GitHub release.
 
     python3 make_index.py <files-dir> [--index py37] [--release adcp-pip-py37]
+    python3 make_index.py <files-dir> --index py3 --release adcp-pip-py3
 
 <files-dir> holds the release's files (to compute their sha256). The index pages link each
 file to its download URL on github.com/sannerlab/downloads, so this repo holds only HTML.
 To add or update a package: upload the file to the release, download the release's files
 (gh release download adcp-pip-py37 -R sannerlab/downloads -D files/), rerun, commit, push.
+Wheels may be pure (py3-none-any) or built for one CPython (cp312-cp312-manylinux...).
 """
 import argparse, hashlib, html, re
 from pathlib import Path
@@ -20,7 +22,7 @@ base = f"https://github.com/sannerlab/downloads/releases/download/{a.release}/"
 
 projects = {}
 for f in sorted(Path(a.files).iterdir()):
-    m = re.match(r"(.+?)-\d[^-]*(-py\d.*\.whl|\.tar\.gz|\.zip)$", f.name)
+    m = re.match(r"(.+?)-\d[^-]*(-(?:py|cp)\d.*\.whl|\.tar\.gz|\.zip)$", f.name)
     if not m:
         raise SystemExit(f"not a package file: {f.name}")
     name = re.sub(r"[-_.]+", "-", m.group(1)).lower()  # PEP 503 normalised name

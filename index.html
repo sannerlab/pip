@@ -5,9 +5,11 @@
 <p>Python packages for the software of the <a href="https://sannerlab.github.io">Sanner Lab</a>
 (Scripps Research), served as a pip index. The files themselves are attached to releases of
 <a href="https://github.com/sannerlab/downloads/releases">sannerlab/downloads</a>.</p>
-<ul><li><a href="py37/">py37/</a>: the Python 3.7 packages of ADCP 1.1 and ADFRsuite</li></ul>
+<ul><li><a href="py37/">py37/</a>: the Python 3.7 packages of ADCP 1.1 and ADFRsuite</li>
+<li><a href="py3/">py3/</a>: bhtree, prody (the lab's fork), mslib (MSMS), utpackages, mglutil and
+molkit2 for Python 3.10 to 3.13 on Linux x86_64 (what WEWoS's Molecules library needs)</li></ul>
 <p>Use it with <code>--index-url</code> only, never together with PyPI: some package names
-(for example <code>prody</code>) belong to unrelated projects on PyPI.</p>
+(for example <code>prody</code> and <code>mslib</code>) belong to unrelated projects on PyPI.</p>
 <pre>python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adcp==0.0.25</pre>
 <p>The ADCP 1.1 installation scripts do this for you: see
 <a href="https://sannerlab.github.io/software/adcp/1.1/download.html">ADCP 1.1 download</a>.</p>
